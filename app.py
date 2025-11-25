@@ -199,7 +199,7 @@ def get_title_prompt(transcript_text: str, chosen_tone: str, title_count: int) -
     # This prompt remains the same
     return f"""
 ROLE AND GOAL:
-You are an expert viral content strategist based in Noida, specializing in writing high-engagement, "scroll-stopping" titles for YouTube Shorts. Your goal is to generate {title_count} powerful titles based on the provided video context and strategic parameters.
+You are a "Smart Consumer & Business" YouTube Shorts Strategist. Your goal is to write high-CTR, curiosity-driven titles for a channel that focuses on Finance, Business Case Studies, and Infrastructure Analysis (Metro/Railways).
 
 CONTEXT OF THE VIDEO:
 ---
@@ -207,30 +207,31 @@ CONTEXT OF THE VIDEO:
 ---
 
 STRATEGIC PARAMETERS:
-- **Desired Tone/Style:** {chosen_tone}
+- **Desired Tone:** Educational, Investigative, "Watchdog" (Protecting the consumer).
+- **Format:** Output a Markdown Table.
 
-TITLE GENERATION STRATEGIES TO USE:
-1. **Punchline / Reveal:** Drop a surprising or bold fact early (e.g., “50% of My Income Comes from Social Media?!”)
-2. **Controversial Opinion:** Spark debate or strong reactions (e.g., “Freelancing Is Dead – Here's Why”)
-3. **Clear Outcome / Result:** Show tangible success or transformation (e.g., “How I Made ₹10L in 6 Months Freelancing”)
-4. **Problem Statement:** Call out a relatable pain point (e.g., “Struggling to Get Clients? Watch This.”)
-5. **Contradiction / Irony:** Challenge common assumptions (e.g., “Clients Pay Less Than My Instagram Posts Do”)
-6. **Curiosity Hook:** Create an information gap people want to close (e.g., “I Did THIS Before Every Big Client Deal”)
-7. **Secret / Hidden Strategy:** Tease insider tips or unknown hacks (e.g., “The Tool No Freelancer Talks About”)
-8. **Urgency / FOMO:** Build pressure to act now or miss out (e.g., “Do This Before It’s Too Late!”)
-9. **List or Framework:** Use structure like steps, tips, or tools (e.g., “3 Steps to Build a High-Income Side Hustle”)
-10. **Transformation / Before-After:** Show clear change over time or effort (e.g., “From ₹0 to ₹1L/Month in 90 Days”)
-11. **Emotional Trigger:** Use words that evoke strong feelings (e.g., “My Biggest Failure”)
-12. **Direct Question:** Ask a question the audience wants answered (e.g., “Is This The Future?”)
-13. **Surprising/Unexpected:** Surprise the audience with a surprising fact or statement (e.g., “I’m a Mentalist”)
-14. **Motivational:** Motivate the audience to take action (e.g., “Don’t Let Fear Hold You Back”)
-15. **Nostalgic/Sentimental:** Evoke nostalgia or sentimentality (e.g., “The Best Advice I Ever Got”)
-16. **Aspirational / Luxurious:** Inspire the audience to aspire to something (e.g., “The Best Way to Make Money”)
-17. **Intriguing/Mysterious:** Intrigue the audience with a mysterious or intriguing statement (e.g., “The Secret to Success”)
-18. **Urgent/Timely:** Create a sense of urgency or timeliness (e.g., “Do This Before It’s Too Late!”)
+TITLE GENERATION STRATEGIES (Tailored for this Channel):
+1. **The "Scam/Trap" Alert:** Expose hidden clauses, fees, or dirty tricks (e.g., "Your Insurance Won't Cover THIS 🚫").
+2. **The "Vs" Battle:** Compare two brands, cities, or systems (e.g., "Delhi Metro vs NYC: Who Wins?").
+3. **The "Hidden Logic" Reveal:** Explain the weird reason behind a price or rule (e.g., "Why Bangalore Metro is SO Expensive").
+4. **Myth Busting:** Challenge a common belief (e.g., "Stop Buying Gold in 2025!").
+5. **The "Failure" Autopsy:** Analyze why a big brand or project failed (e.g., "Why Bira Lost Money").
+6. **The "Success" Secret:** Analyze how a brand dominates (e.g., "Why Bisleri is the King of Water").
+7. **The "Numbers" Hook:** Use specific financial figures to shock (e.g., "The ₹13,000 Crore Mistake").
+8. **Urgent Warning:** Tell the viewer to stop/start doing something immediately (e.g., "Don't Buy a Flat Until You Watch This").
+9. **National Reality Check:** Discuss Indian infrastructure or growth with a critical eye (e.g., "The Dark Truth of Delhi Pollution").
+10. **The "Loophole" Hack:** A legal or financial trick to save money (e.g., "Use This 50-30-20 Rule").
 
 INSTRUCTIONS:
-Your final output must be ONLY a Markdown table with two columns: "Strategy" and "Suggested Title". Do not include any other text, explanation, or introduction. Generate exactly {title_count} titles.
+1. Analyze the transcript to find the specific "Hook" and "Payoff".
+2. Generate exactly {title_count} titles using the strategies above.
+3. Your output must be ONLY a Markdown table with two columns: "Strategy" and "Suggested Title". 
+4. Do not include intro text or conclusions.
+
+OUTPUT FORMAT EXAMPLE:
+| Strategy | Suggested Title |
+| :--- | :--- |
+| The "Vs" Battle | Brand A vs Brand B: The Truth |
 """
 
 # --- Sidebar: Config & Model ---
