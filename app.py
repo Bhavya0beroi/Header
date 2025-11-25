@@ -80,7 +80,7 @@ PLAIN-ENGLISH NAMING (Strict Rules for Strategy Labeling)
 
 INPUTS
 - srt_raw: raw SRT text.
-- config: defaults to {"max_titles": 5, "language": "en"}
+- config settings: Max 5 titles, English language.
 
 AVAILABLE_STRATEGIES (Internal Logic - Use These to Formulate Titles)
 [
@@ -113,9 +113,6 @@ OUTPUT (STRICT MARKDOWN TABLE ONLY)
 
 SRT:
 {srt_raw_text}
-
-config:
-{{ "max_titles": 5, "language": "en" }}
 """
 
 def get_header_prompt(transcript_text: str, chosen_tone: str, header_count: int, custom_angle: str) -> str:
