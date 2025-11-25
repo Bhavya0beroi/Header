@@ -71,57 +71,51 @@ def get_tone_prompt(srt_raw_text: str) -> str:
     # This prompt remains the same
     return f"""
 ROLE
-You are a YouTube Shorts tone extractor. Read an SRT, understand its meaning and audience, then output ONLY the tone names. Do NOT generate titles or any other fields.
+You are a "Smart Consumer & Business" YouTube Shorts Title Generator. Read the SRT, identify the financial or logical hook, and generate high-CTR titles.
 
-PLAIN-ENGLISH NAMING (must follow)
-- Each tone name is 1–3 simple words a 12-year-old can understand.
-- Keep nuance but stay clear (e.g., "Myth Busting", "Calm Guide", "Soft Warning", "Process Review", "Women First").
-- No slashes, emojis, colons, or jargon. Use spaces; Title Case preferred.
-
-EXHAUSTIVE MODE (very important)
-- Return ALL distinct tones that the SRT clearly supports (no arbitrary cap).
-- Dedupe near-duplicates; keep the clearest name.
-- Only include tones you can justify from SRT evidence; do not invent without cues.
+PLAIN-ENGLISH NAMING (Strict Rules for Strategy Labeling)
+- Use simple words a 12-year-old can understand.
+- No generic words. Use specific labels like "Money Lesson", "Scam Alert", "Brand War".
+- No slashes, emojis, or jargon.
 
 INPUTS
-- srt_raw: raw SRT text with timestamps.
-- config (optional):
-  - max_tones: "max" (default) for exhaustive; or an integer to hard-cap.
-  - language: "en" by default
-  - audience_hint (optional)
+- srt_raw: raw SRT text.
+- config: defaults to {"max_titles": 5, "language": "en"}
 
-AVAILABLE_STRATEGIES (for internal reasoning only; DO NOT output)
-["Punchline / Reveal","Controversial Opinion","Clear Outcome / Result","Problem Statement",
- "Contradiction / Irony","Curiosity Hook","Secret / Hidden Strategy","Urgency / FOMO",
- "List or Framework","Transformation / Before-After","Emotional Trigger","Direct Question",
- "Surprising / Unexpected","Motivational","Nostalgic / Sentimental","Aspirational / Luxurious",
- "Intriguing / Mysterious","Urgent / Timely"]
+AVAILABLE_STRATEGIES (Internal Logic - Use These to Formulate Titles)
+[
+  "Myth Busting / Fact Check",      // Use "Stop Believing This" or "Myth Exposed" framing
+  "Scam Exposure / Trap",           // Use "Don't Do This" or "The Trap" framing
+  "Brand War / Rivalry",            // Use "X vs Y" or "Who Won?" framing
+  "Hidden Cost / Fine Print",       // Use "Hidden Fee" or "Real Cost" framing
+  "System Explainer",               // Use "How It Actually Works" framing
+  "Success Story",                  // Use "How They Won" framing
+  "Failure Analysis",               // Use "Why They Failed" framing
+  "Comparison / Vs",                // Use "Delhi vs Mumbai" framing
+  "Money Hack / Strategy",          // Use "Save 50%" or "Money Trick" framing
+  "Urgent Warning",                 // Use "Warning" or "Watch Before Buying" framing
+  "National Pride / Progress",      // Use "India's Best" or "World Record" framing
+  "Social Issue / Reality Check"    // Use "The Harsh Truth" framing
+]
 
-METHOD (deterministic)
-1) CLEAN & READ: Strip timestamps for analysis; keep order. Lowercase for matching; preserve entities and groups.
-2) CONTEXT: Internally summarize what the clip says, for whom, and the stance (claim/challenge/neutral).
-3) SIGNALS → TONES: Mine stance/emotion cues (claims, myth-challenge, uncertainty markers like "still", identity labels like "women", cadence words like "quarterly", advice verbs like "understand/explain").
-4) NAME: Propose tones that best capture meaning and emotion. If needed, create new simple names.
-5) SELECTION:
-   - If config.max_tones = "max": include all justified tones with confidence ≥ 0.20, deduped and sorted by importance.
-   - If an integer is provided: include up to that many highest-confidence tones after deduping.
+METHOD (Deterministic)
+1) CLEAN & READ: Strip timestamps. Focus on the "Hook" (first 5 sec) and "Payoff" (last 5 sec).
+2) IDENTIFY THE ANGLE: Pick the strongest strategy from the list above.
+3) DRAFT TITLES: Create 5 distinct titles. 
+   - They must be short (under 50 chars preferred).
+   - They must induce curiosity or shock.
+   - Do NOT use clickbait that lies; use "edutainment" hooks.
+4) FORMAT: Present the result as a table.
 
-QUALITY GUARDS
-- Use plain words but keep essence. Be identity-sensitive. No outside facts.
-- If SRT is very short and evidence is weak, return fewer tones.
-- Absolutely no extra text or keys beyond the JSON array.
+OUTPUT (STRICT MARKDOWN TABLE ONLY)
+- Columns: "Option", "Title", "Strategy Used"
+- Do not output any intro text or conclusion. Just the table.
 
-OUTPUT (STRICT JSON ONLY)
-- Print ONLY a JSON array of strings (tone names). No wrapper object, no comments, no trailing text.
-- Example format (for shape only; do not print this example literally):
-  ["Educational","Myth Busting","Calm Guide"]
-
-NOW DO THE TASK
 SRT:
 {srt_raw_text}
 
 config:
-{{ "max_tones": "max", "language": "en" }}
+{{ "max_titles": 5, "language": "en" }}
 """
 
 def get_header_prompt(transcript_text: str, chosen_tone: str, header_count: int, custom_angle: str) -> str:
