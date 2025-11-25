@@ -138,49 +138,50 @@ Stay tightly on-theme.
 
     return f"""
 [ROLE & EXPERTISE]
-You are a top-tier viral copywriter and social media strategist. You specialize in creating high-performing hooks for YouTube Shorts, Instagram Reels, and TikToks. You understand retention psychology and what works for the Indian audience as of October 2025.
-
+You are a specialized "Infotainment & Business" Content Strategist for the Indian market. You are an expert at decoding complex topics (Finance, Infrastructure, Scams, Corporate Case Studies) into 3-second viral hooks for YouTube Shorts and Instagram Reels. You understand the psychology of "Exposing the Truth" and "FOMO" (Fear Of Missing Out).
 [PRIMARY TASK]
-Analyze the provided transcript and generate a list of viral Headers for on-screen text and thumbnails. The language must be simple, emotionally engaging, and curiosity-inducing.
-
+Analyze the provided transcript and generate a list of viral Headers for on-screen text and thumbnails.
 [INPUT TRANSCRIPT]
----
 {transcript_text}
----
-
 [GENERATION GUIDELINES & CONSTRAINTS]
-## PRIMARY TONE & STYLE
-**Chosen Tone:** {chosen_tone}
-
-**Instruction:** All generated headers MUST strictly adhere to the Chosen Tone specified above. Use one of the following options for the placeholder:
-- **Shocking/Intriguing:** Create a sense of disbelief or an urge to know more.
-- **Knowledge-Based:** Frame as a secret, hack, or little-known fact.
-- **Aspirational:** Connect with the audience's desires and future goals.
-- **Reverse-Psychology:** Use a challenge or a "don't do this" approach.
-- **Relatable Emotion:** Tap into a common, shared feeling or struggle.
-
+PRIMARY TONE & STYLE
+Chosen Tone: {chosen_tone}
+Instruction: All generated headers MUST strictly adhere to the Chosen Tone. Use one of the following options:
+1. The Expose (Investigative): Frame it as a scam, a trap, or a lie being revealed. (Keywords: Scam, Trap, Fake, Reality).
+2. The Comparative (Vs Battle): Direct comparison between two rivals or cities. (Style: X vs Y).
+3. The "Zero to Hero" (Numbers): Focus on insane growth, huge drops, or money hacks. (Use ₹, CR, %).
+4. The Contrarian (Shocking Fact): State something that sounds impossible but is true.
+5. The Cautionary (Warning): Warn the audience about a mistake they are making.
 {angle_block}
-
-## GUIDING PRINCIPLES (You MUST follow these):
-- **BE HYPER-SPECIFIC:** Incorporate specific names, numbers, or unique concepts from the transcript.
-- **FOCUS ON TRANSFORMATION & OUTCOME:** Frame headers around a clear "before & after" or a tangible result.
-- **LEVERAGE AUTHORITY/PERSONALITY:** If a specific person is mentioned, use their name.
-- **THINK VISUALLY:** Imagine the text on a thumbnail.
-
-## HEADER FORMATTING RULES:
-- **Length:** STRICTLY 3–5 words.
-- **Form:** Punchy phrase (not a full sentence).
-- **Emojis:** Include 1–2 strong emojis (e.g., 🤫, 🤯, 🚨, 💰, 🚩).
-- **Examples:** “The 12-Hour Lie 🤯”, “Their Secret Pay Trick 🤫”, “Stop Chasing Happiness 🚩”.
-
+GUIDING PRINCIPLES (The "Thumbnail Logic"):
+1. NO FLUFF, JUST FACTS: Do not use adjectives like "Amazing" or "Incredible." Use nouns and verbs.
+   BAD: "This Business is Amazing"
+   GOOD: "Nike Owns NO Factories"
+2. USE "INDIAN CONTEXT" SYMBOLS: Whenever money is involved, strictly use "₹" and Indian numbering terms like "Lakh" or "Cr" if applicable.
+   BAD: "Made Millions"
+   GOOD: "₹0 to ₹5000 CR"
+3. THE "HIGHLIGHT" WORD: Structure the phrase so that one specific word pops out (as if it were highlighted in Yellow or Red on the thumbnail).
+   Example: "India's Food TRAP" (Trap is the punch word).
+4. CITY & BRAND NAMING: If the transcript mentions a specific city (Indore, Mumbai, Delhi) or Brand (Tata, Jio, Red Bull), you MUST put that name in the header.
+HEADER STRATEGIES TO USE:
+* **The "Hidden Trap" Hook:** (e.g., "India's Road SCAM", "The Real POLLUTERS")
+* **The "Math" Hook:** (e.g., "Buy Flat at ₹0", "The 50-30-20 Rule")
+* **The "Vs" Hook:** (e.g., "Red Bull vs Sting", "Metro vs Subway")
+* **The "Questioning Authority" Hook:** (e.g., "They are FOOLING You", "RBI's Surprise Move")
+HEADER FORMATTING RULES:
+* **Length:** STRICTLY 3–6 words.
+* **Visual Structure:** 2 lines maximum.
+* **Emojis:** Minimal usage (max 1). Use alert style emojis (🚨, 🤯, 📉, 🆚, ❌).
+* **Forbidden:** Do not use full sentences with periods.
 [OUTPUT FORMAT — NO EXTRA TEXT]
+Generate 10 responses
 Respond ONLY with this section and nothing else. Generate EXACTLY {header_count} headers.
-
-**Headers (3–5 words max)**
-- [Header 1]
-- [Header 2]
+Headers (3–6 words max)
+[Header 1]
+[Header 2]
 ...
-- [Header {header_count}]
+[Header {header_count}]
+
 """
 
 def get_title_prompt(transcript_text: str, chosen_tone: str, title_count: int) -> str:
