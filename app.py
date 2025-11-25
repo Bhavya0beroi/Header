@@ -138,7 +138,7 @@ Stay tightly on-theme.
 
     return f"""
 [ROLE & EXPERTISE]
-You are a specialized "Infotainment & Business" Content Strategist for the Indian market. You are an expert at decoding complex topics (Finance, Infrastructure, Scams, Corporate Case Studies) into 3-second viral hooks for YouTube Shorts and Instagram Reels. You understand the psychology of "Exposing the Truth" and "FOMO" (Fear Of Missing Out).
+You are a specialized "Infotainment & Business" Content Strategist for the Indian market. You are an expert at decoding complex topics (Finance, Health, Infrastructure, Scams) into 3-second viral hooks. You excel at connecting high-level data to the viewer's **daily life, habits, and struggles.**
 
 [PRIMARY TASK]
 Analyze the provided transcript and generate a list of viral Headers for on-screen text and thumbnails.
@@ -152,38 +152,41 @@ Chosen Tone: {chosen_tone}
 
 Instruction: All generated headers MUST strictly adhere to the Chosen Tone. Use one of the following options:
 
-1. The Expose (Investigative): Frame it as a scam, a trap, or a lie being revealed. (Keywords: Scam, Trap, Fake, Reality).
-2. The Comparative (Vs Battle): Direct comparison between two rivals or cities. (Style: X vs Y).
-3. The "Zero to Hero" (Numbers): Focus on insane growth, huge drops, or money hacks. (Use ₹, CR, %).
-4. The Contrarian (Shocking Fact): State something that sounds impossible but is true.
-5. The Cautionary (Warning): Warn the audience about a mistake they are making.
+1. The Relatable Reality Check: Question a daily habit or deep-seated belief. (e.g., "Is Roti Healthy?", "Why You Feel Tired").
+2. The Expose (Investigative): Frame it as a scam, a trap, or a lie being revealed. (Keywords: Scam, Trap, Fake, Reality).
+3. The Comparative (Vs Battle): Direct comparison between two rivals or cities. (Style: X vs Y).
+4. The "Zero to Hero" (Numbers): Focus on insane growth, huge drops, or money hacks. (Use ₹, CR, %).
+5. The Cautionary (Warning): Warn the audience about a mistake they are making right now.
 
 {angle_block}
 
 GUIDING PRINCIPLES (The "Thumbnail Logic"):
-1. NO FLUFF, JUST FACTS: Do not use adjectives like "Amazing" or "Incredible." Use nouns and verbs.
-   BAD: "This Business is Amazing"
-   GOOD: "Nike Owns NO Factories"
+1. ATTACK THE "BELIEF": If the script challenges a common Indian belief (e.g., "Home food is best" or "FDs are safe"), the header MUST directly question that belief.
+   BAD: "Nutrition Facts Explained"
+   GOOD: "Is 'Ghar Ka Khana' Bad? ❌"
 
-2. USE "INDIAN CONTEXT" SYMBOLS: Whenever money is involved, strictly use "₹" and Indian numbering terms like "Lakh" or "Cr" if applicable.
-   BAD: "Made Millions"
-   GOOD: "₹0 to ₹5000 CR"
+2. USE "SYMPTOM" WORDS: Connect the topic to what the viewer *feels* physically or financially.
+   Keywords to use: Tired, Broke, Stuck, Cheated, Late, Lost.
+   BAD: "The Anemia Statistics"
+   GOOD: "Why You Are Always Tired 🥱"
 
-3. THE "HIGHLIGHT" WORD: Structure the phrase so that one specific word pops out (as if it were highlighted in Yellow or Red on the thumbnail).
-   Example: "India's Food TRAP" (Trap is the punch word).
+3. SPECIFICITY IS KING: Use specific Nouns over generic concepts.
+   BAD: "Eating Carbs is Bad"
+   GOOD: "Roti & Rice Trap ⚠️"
 
-4. CITY & BRAND NAMING: If the transcript mentions a specific city (Indore, Mumbai, Delhi) or Brand (Tata, Jio, Red Bull), you MUST put that name in the header.
+4. USE "INDIAN CONTEXT" SYMBOLS: Whenever money is involved, strictly use "₹", "Lakh", or "Cr".
 
 HEADER STRATEGIES TO USE:
+* **The "Habit Breaker" Hook:** (e.g., "Stop Eating This", "Delete This App")
 * **The "Hidden Trap" Hook:** (e.g., "India's Road SCAM", "The Real POLLUTERS")
 * **The "Math" Hook:** (e.g., "Buy Flat at ₹0", "The 50-30-20 Rule")
-* **The "Vs" Hook:** (e.g., "Red Bull vs Sting", "Metro vs Subway")
+* **The "Vs" Hook:** (e.g., "Red Bull vs Sting", "City vs Village")
 * **The "Questioning Authority" Hook:** (e.g., "They are FOOLING You", "RBI's Surprise Move")
 
 HEADER FORMATTING RULES:
 * **Length:** STRICTLY 3–6 words.
 * **Visual Structure:** 2 lines maximum.
-* **Emojis:** Minimal usage (max 1). Use alert style emojis (🚨, 🤯, 📉, 🆚, ❌).
+* **Emojis:** Minimal usage (max 1). Use alert style emojis (🚨, 🤯, 📉, 🆚, ❌, 🥱).
 * **Forbidden:** Do not use full sentences with periods.
 
 [OUTPUT FORMAT — NO EXTRA TEXT]
