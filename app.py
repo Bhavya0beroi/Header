@@ -199,7 +199,7 @@ def get_title_prompt(transcript_text: str, chosen_tone: str, title_count: int) -
     # This prompt remains the same
     return f"""
 ROLE AND GOAL:
-You are a "Smart Consumer & Business" YouTube Shorts Strategist. Your goal is to write high-CTR, curiosity-driven titles for a channel that focuses on Finance, Business Case Studies, and Infrastructure Analysis (Metro/Railways).
+You are a "Smart Consumer & Business" YouTube Shorts Strategist. Your goal is to write high-CTR, punchy titles for a channel that focuses on Finance, Business Case Studies, and Infrastructure Analysis.
 
 CONTEXT OF THE VIDEO:
 ---
@@ -207,31 +207,32 @@ CONTEXT OF THE VIDEO:
 ---
 
 STRATEGIC PARAMETERS:
-- **Desired Tone:** Educational, Investigative, "Watchdog" (Protecting the consumer).
+- **Desired Tone:** Educational, Investigative, "Watchdog".
+- **Length Constraint:** STRICTLY 3 to 8 words max. No long sentences.
 - **Format:** Output a Markdown Table.
 
 TITLE GENERATION STRATEGIES (Tailored for this Channel):
-1. **The "Scam/Trap" Alert:** Expose hidden clauses, fees, or dirty tricks (e.g., "Your Insurance Won't Cover THIS 🚫").
-2. **The "Vs" Battle:** Compare two brands, cities, or systems (e.g., "Delhi Metro vs NYC: Who Wins?").
-3. **The "Hidden Logic" Reveal:** Explain the weird reason behind a price or rule (e.g., "Why Bangalore Metro is SO Expensive").
-4. **Myth Busting:** Challenge a common belief (e.g., "Stop Buying Gold in 2025!").
-5. **The "Failure" Autopsy:** Analyze why a big brand or project failed (e.g., "Why Bira Lost Money").
-6. **The "Success" Secret:** Analyze how a brand dominates (e.g., "Why Bisleri is the King of Water").
-7. **The "Numbers" Hook:** Use specific financial figures to shock (e.g., "The ₹13,000 Crore Mistake").
-8. **Urgent Warning:** Tell the viewer to stop/start doing something immediately (e.g., "Don't Buy a Flat Until You Watch This").
-9. **National Reality Check:** Discuss Indian infrastructure or growth with a critical eye (e.g., "The Dark Truth of Delhi Pollution").
-10. **The "Loophole" Hack:** A legal or financial trick to save money (e.g., "Use This 50-30-20 Rule").
+1. **The "Scam/Trap" Alert:** Expose hidden tricks (e.g., "Insurance Won't Cover THIS 🚫").
+2. **The "Vs" Battle:** Direct comparison (e.g., "Delhi vs NYC: Who Wins?").
+3. **The "Hidden Logic" Reveal:** The 'why' behind the money (e.g., "Why Bangalore Metro is Expensive").
+4. **Myth Busting:** Stop the viewer (e.g., "Stop Buying Gold Now!").
+5. **The "Failure" Autopsy:** Why they failed (e.g., "Why Bira Lost Money").
+6. **The "Success" Secret:** Why they won (e.g., "Bisleri: The Water King").
+7. **The "Numbers" Hook:** Shocking stats (e.g., "The ₹13,000 Crore Mistake").
+8. **Urgent Warning:** Immediate action (e.g., "Don't Buy a Flat Yet").
+9. **National Reality Check:** Hard truths (e.g., "Delhi Pollution: The Dark Truth").
+10. **The "Loophole" Hack:** Money saving tricks (e.g., "Use The 50-30-20 Rule").
 
 INSTRUCTIONS:
-1. Analyze the transcript to find the specific "Hook" and "Payoff".
+1. Analyze the transcript to find the "Hook".
 2. Generate exactly {title_count} titles using the strategies above.
-3. Your output must be ONLY a Markdown table with two columns: "Strategy" and "Suggested Title". 
-4. Do not include intro text or conclusions.
+3. **CRITICAL:** Count the words. If a title is over 8 words, DELETE it and rewrite it.
+4. Output ONLY a Markdown table with two columns: "Strategy" and "Suggested Title".
 
 OUTPUT FORMAT EXAMPLE:
 | Strategy | Suggested Title |
 | :--- | :--- |
-| The "Vs" Battle | Brand A vs Brand B: The Truth |
+| The "Vs" Battle | Delhi vs Bangalore: The Truth |
 """
 
 # --- Sidebar: Config & Model ---
